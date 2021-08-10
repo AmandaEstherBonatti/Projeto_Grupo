@@ -56,7 +56,7 @@ namespace SistemaAcademia
                         else
                         {
                             db.Entry(professor).State = EntityState.Modified;
-                            MessageBox.Show("Professor editado com suceso!", "Edição", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Professor editado com suceso!", "Edição", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
                         if (db.SaveChanges() > 0)
@@ -121,7 +121,7 @@ namespace SistemaAcademia
                             else
                             {
                                 db.Entry(aluno).State = EntityState.Modified;
-                                MessageBox.Show("Aluno editado com sucesso!", "Edição", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                MessageBox.Show("Aluno editado com sucesso!", "Edição", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                             if (db.SaveChanges() > 0)
                             {

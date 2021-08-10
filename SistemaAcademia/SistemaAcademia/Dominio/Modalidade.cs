@@ -11,7 +11,7 @@ namespace SistemaAcademia.Dominio
     {
         [Key]
         public int IdModalidade { get; set; }
-        public Professor Professor { get; set; }
+        public virtual Professor Professor { get; set; }
 
         public int VezesSemana { get; set; }
 

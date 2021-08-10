@@ -10,8 +10,7 @@ namespace SistemaAcademia.Dominio
     {
         public String Turno { get; set; }
 
-        //[ForeignKey("Modalidade")]
-        public Modalidade Modalidade  { get; set; }
+        public virtual Modalidade Modalidade  { get; set; }
 
         public String Pagou { get; set; }
     }
