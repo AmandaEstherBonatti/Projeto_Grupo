@@ -115,7 +115,6 @@ C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcadem
 C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\bin\Debug\System.Threading.Channels.xml
 C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\bin\Debug\System.ValueTuple.xml
-C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.csprojAssemblyReference.cache
 C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.CadastroAluno.resources
 C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.CadastroProfessor.resources
 C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.FormPrincipal.resources
@@ -127,3 +126,6 @@ C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcadem
 C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.csproj.CopyComplete
 C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.exe
 C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.pdb
+C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.csproj.AssemblyReference.cache
+C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.Migrations.v1.resources
+C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.Migrations.retirarFKModalidade.resources

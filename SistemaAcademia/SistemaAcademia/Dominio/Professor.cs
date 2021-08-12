@@ -12,5 +12,9 @@ namespace SistemaAcademia.Dominio
 
         public double SalarioHora { get; set; }
 
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }

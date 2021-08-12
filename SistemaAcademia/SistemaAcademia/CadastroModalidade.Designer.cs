@@ -29,6 +29,7 @@ namespace SistemaAcademia
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSalvarModalidade = new System.Windows.Forms.Button();
@@ -36,10 +37,13 @@ namespace SistemaAcademia
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdModalidade = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbxProfessorModalidade = new System.Windows.Forms.ComboBox();
+            this.professorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbxVezesPorSemanaModalidade = new System.Windows.Forms.ComboBox();
             this.txtPrecoHora = new System.Windows.Forms.TextBox();
             this.txtNomeModalidade = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.cbxProfessorModalidade = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.professorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -105,13 +109,9 @@ namespace SistemaAcademia
             this.label1.TabIndex = 25;
             this.label1.Text = "Id ";
             // 
-            // cbxProfessorModalidade
+            // professorBindingSource
             // 
-            this.cbxProfessorModalidade.FormattingEnabled = true;
-            this.cbxProfessorModalidade.Location = new System.Drawing.Point(72, 59);
-            this.cbxProfessorModalidade.Name = "cbxProfessorModalidade";
-            this.cbxProfessorModalidade.Size = new System.Drawing.Size(121, 21);
-            this.cbxProfessorModalidade.TabIndex = 3;
+            this.professorBindingSource.DataSource = typeof(SistemaAcademia.Dominio.Professor);
             // 
             // cbxVezesPorSemanaModalidade
             // 
@@ -143,15 +143,35 @@ namespace SistemaAcademia
             this.txtNomeModalidade.Size = new System.Drawing.Size(100, 20);
             this.txtNomeModalidade.TabIndex = 1;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnCancel.Location = new System.Drawing.Point(118, 156);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 35;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // cbxProfessorModalidade
+            // 
+            this.cbxProfessorModalidade.DataSource = this.professorBindingSource;
+            this.cbxProfessorModalidade.FormattingEnabled = true;
+            this.cbxProfessorModalidade.Location = new System.Drawing.Point(72, 59);
+            this.cbxProfessorModalidade.Name = "cbxProfessorModalidade";
+            this.cbxProfessorModalidade.Size = new System.Drawing.Size(121, 21);
+            this.cbxProfessorModalidade.TabIndex = 36;
+            // 
             // CadastroModalidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(215, 195);
+            this.Controls.Add(this.cbxProfessorModalidade);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtNomeModalidade);
             this.Controls.Add(this.txtPrecoHora);
             this.Controls.Add(this.cbxVezesPorSemanaModalidade);
-            this.Controls.Add(this.cbxProfessorModalidade);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSalvarModalidade);
@@ -162,6 +182,7 @@ namespace SistemaAcademia
             this.Name = "CadastroModalidade";
             this.Text = "Modalidade";
             this.Load += new System.EventHandler(this.CadastroModalidade_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.professorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,9 +196,11 @@ namespace SistemaAcademia
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIdModalidade;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxProfessorModalidade;
         private System.Windows.Forms.ComboBox cbxVezesPorSemanaModalidade;
         private System.Windows.Forms.TextBox txtPrecoHora;
         private System.Windows.Forms.TextBox txtNomeModalidade;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.BindingSource professorBindingSource;
+        private System.Windows.Forms.ComboBox cbxProfessorModalidade;
     }
 }

@@ -25,8 +25,9 @@ namespace SistemaAcademia
             txtNomeAluno.DataBindings.Add("Text", _aluno, "Nome");
             mbxCpfAluno.DataBindings.Add("Text", _aluno, "Cpf");
             mbxTelefoneAluno.DataBindings.Add("Text", _aluno, "Telefone");
-            //cbxModalidade.DataBindings.Add("Text", _aluno, "Modalidade");
+            modalidadeBindingSource.DataSource = new AppDBContext().Modalidades.ToList();
             cbxPagamento.DataBindings.Add("Text", _aluno, "Pagou");
+
         }
 
         private void btnSalvarAluno_Click(object sender, EventArgs e)
@@ -34,5 +35,26 @@ namespace SistemaAcademia
             this.Close();
 
         }
+
+        private void cbxModalidade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _aluno.Modalidade = cbxModalidade.SelectedItem as Modalidade;
+            selecionarModalidaAtual();
+        }
+
+        private void selecionarModalidaAtual()
+        {
+            foreach ( var item in cbxModalidade.Items)
+            {
+                var modalidade = item as Modalidade;
+
+                if (modalidade is null) return;
+                if(modalidade.IdModalidade == _aluno.Modalidade.IdModalidade)
+                {
+                    cbxModalidade.SelectedItem = item;
+                }
+            }
+        }
+
     }
 }

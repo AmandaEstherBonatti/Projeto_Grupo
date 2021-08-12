@@ -124,6 +124,14 @@
     <Compile Include="Migrations\202108062223228_updat-database.designer.cs">
       <DependentUpon>202108062223228_updat-database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108112352072_v1.cs" />
+    <Compile Include="Migrations\202108112352072_v1.designer.cs">
+      <DependentUpon>202108112352072_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108120015299_retirarFKModalidade.cs" />
+    <Compile Include="Migrations\202108120015299_retirarFKModalidade.designer.cs">
+      <DependentUpon>202108120015299_retirarFKModalidade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CadastroModalidade.cs">
       <SubType>Form</SubType>
@@ -148,6 +156,12 @@
     <EmbeddedResource Include="CadastroModalidade.resx">
       <DependentUpon>CadastroModalidade.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108112352072_v1.resx">
+      <DependentUpon>202108112352072_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108120015299_retirarFKModalidade.resx">
+      <DependentUpon>202108120015299_retirarFKModalidade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -160,6 +174,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SistemaAcademia.Dominio.Modalidade.datasource" />
     <None Include="Properties\DataSources\SistemaAcademia.Dominio.Pessoa.datasource" />
+    <None Include="Properties\DataSources\SistemaAcademia.Dominio.Professor.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

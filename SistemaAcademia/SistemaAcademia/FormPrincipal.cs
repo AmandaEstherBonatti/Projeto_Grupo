@@ -65,6 +65,23 @@ namespace SistemaAcademia
                         }
                     }
                 }
+                else
+                {
+                    using (var db = new AppDBContext())
+                    {
+                        if (_professor.Id == 0)
+                        {
+                            db.Entry(_professor).State = EntityState.Deleted;
+                            pessoaBindingSource.Remove(_professor);
+                            dataGridView1.Refresh();
+                        }
+                        else
+                        {
+                            form.Close();
+                        }
+                    }
+
+                }
             }
         }
         private void btnExcluirProfessor_Click(object sender, EventArgs e)
@@ -130,7 +147,24 @@ namespace SistemaAcademia
                         }
                     
                 }
-                
+                else
+                {
+                    using (var db = new AppDBContext())
+                    {
+                        if (_aluno.Id == 0)
+                        {
+                            db.Entry(_aluno).State = EntityState.Deleted;
+                            pessoaBindingSource1.Remove(_aluno);
+                             dataGridView2.Refresh();
+                        }
+                        else
+                        {
+                            form.Close();
+                        }
+                    }
+
+                }
+
             }
 
 
@@ -152,7 +186,7 @@ namespace SistemaAcademia
                     db.Entry(_aluno).State = EntityState.Deleted;
                     if (db.SaveChanges() > 0)
                     {
-                        pessoaBindingSource.Remove(_aluno);
+                        pessoaBindingSource1.Remove(_aluno);
                         dataGridView1.Refresh();
                     }
                 }
@@ -171,9 +205,9 @@ namespace SistemaAcademia
 
             using (var form = new CadastroModalidade(modalidadeBindingSource.Current as Modalidade))
             {
+                    var modalidade = modalidadeBindingSource.Current as Modalidade;
                 if (form.ShowDialog() == DialogResult.Yes)
                 {
-                    var modalidade = modalidadeBindingSource.Current as Modalidade;
 
                     using (var db = new AppDBContext())
                     {
@@ -197,6 +231,23 @@ namespace SistemaAcademia
                         }
                     }
                 }
+                else
+                {
+                    using (var db = new AppDBContext())
+                    {
+                        if (modalidade.IdModalidade == 0)
+                        {
+                            db.Entry(_modalidade).State = EntityState.Deleted;
+                            modalidadeBindingSource.Remove(_modalidade);
+                            dataGridView2.Refresh();
+                        }
+                        else
+                        {
+                            form.Close();
+                        }
+                    }
+
+                }
             }
         }
         private void btnExcluirModalidade_Click(object sender, EventArgs e)
@@ -216,12 +267,10 @@ namespace SistemaAcademia
                     if (db.SaveChanges() > 0)
                     {
                         modalidadeBindingSource.Remove(_modalidade);
-                        dataGridView1.Refresh();
+                        dataGridView3.Refresh();
                     }
                 }
             }
         }
-
-       
     }
 }

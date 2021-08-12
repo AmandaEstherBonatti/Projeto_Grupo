@@ -40,6 +40,7 @@ namespace SistemaAcademia
             this.cbxTurnoProfessor = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSalarioHora = new System.Windows.Forms.TextBox();
+            this.btncancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -140,11 +141,23 @@ namespace SistemaAcademia
             this.txtSalarioHora.Size = new System.Drawing.Size(100, 20);
             this.txtSalarioHora.TabIndex = 5;
             // 
+            // btncancel
+            // 
+            this.btncancel.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btncancel.Location = new System.Drawing.Point(123, 160);
+            this.btncancel.Name = "btncancel";
+            this.btncancel.Size = new System.Drawing.Size(75, 23);
+            this.btncancel.TabIndex = 11;
+            this.btncancel.Text = "Cancel";
+            this.btncancel.UseVisualStyleBackColor = true;
+            this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
+            // 
             // CadastroProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(215, 195);
+            this.Controls.Add(this.btncancel);
             this.Controls.Add(this.txtSalarioHora);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbxTurnoProfessor);
@@ -177,5 +190,6 @@ namespace SistemaAcademia
         private System.Windows.Forms.ComboBox cbxTurnoProfessor;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSalarioHora;
+        private System.Windows.Forms.Button btncancel;
     }
 }
