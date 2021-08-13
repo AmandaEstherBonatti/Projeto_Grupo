@@ -1,13 +1,7 @@
 ﻿using SistemaAcademia.Dominio;
+using SistemaAcademia.Repository;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaAcademia
@@ -23,15 +17,16 @@ namespace SistemaAcademia
             using (var db = new AppDBContext())
             {
                 pessoaBindingSource.DataSource = db.Professores.ToList();
+                pessoaBindingSource1.DataSource = db.Alunos.ToList();
+                modalidadeBindingSource.DataSource = db.Modalidades.ToList();
             }
         }
 
         private void btnNovoProfessor_Click(object sender, EventArgs e)
         {
-            var _professor = new Professor();
             if (sender == btnNovoProfessor)
             {
-                pessoaBindingSource.Add(_professor);
+                pessoaBindingSource.Add(new Professor());
                 pessoaBindingSource.MoveLast();
             }
             if (pessoaBindingSource.Current == null) return;
@@ -42,77 +37,36 @@ namespace SistemaAcademia
                 {
                     var professor = pessoaBindingSource.Current as Professor;
 
-                    using (var db = new AppDBContext())
+                    if (new ProfessorRepository().Save(professor) > 1)
                     {
-                        if (db.Entry(professor).State == EntityState.Detached)
-                        {
-                            db.Set<Pessoa>().Attach(professor);
-                        }
-                        if (professor.Id == 0)
-                        {
-                            db.Entry(professor).State = EntityState.Added;
-                            MessageBox.Show("Professor cadastrado com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            db.Entry(professor).State = EntityState.Modified;
-                            MessageBox.Show("Professor editado com suceso!", "Edição", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-
-                        if (db.SaveChanges() > 0)
-                        {
-                            dataGridView1.Refresh();
-                        }
+                        dgvProfessor.Refresh();
                     }
-                }
-                else
-                {
-                    using (var db = new AppDBContext())
-                    {
-                        if (_professor.Id == 0)
-                        {
-                            db.Entry(_professor).State = EntityState.Deleted;
-                            pessoaBindingSource.Remove(_professor);
-                            dataGridView1.Refresh();
-                        }
-                        else
-                        {
-                            form.Close();
-                        }
-                    }
-
                 }
             }
         }
         private void btnExcluirProfessor_Click(object sender, EventArgs e)
         {
-            var _professor = pessoaBindingSource.Current as Professor;
-            if (_professor == null) return;
+            var professor = pessoaBindingSource.Current as Professor;
+            if (professor == null) return;
             using (var db = new AppDBContext())
             {
-                if (MessageBox.Show("Deseja excluir mesmo esse professor?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja excluir mesmo esse professor?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
-                    if (db.Entry(_professor).State == EntityState.Detached)
-                    {
-                        db.Set<Pessoa>().Attach(_professor);
-                    }
-
-                    db.Entry(_professor).State = EntityState.Deleted;
-                    if (db.SaveChanges() > 0)
-                    {
-                        pessoaBindingSource.Remove(_professor);
-                        dataGridView1.Refresh();
-                    }
+                    return;
+                }
+                if (new ProfessorRepository().Delete(professor) > 0)
+                {
+                    pessoaBindingSource.Remove(professor);
+                    dgvProfessor.Refresh();
                 }
             }
         }
 
         private void btnNovoAluno_Click(object sender, EventArgs e)
         {
-            var _aluno = new Aluno();
             if (sender == btnNovoAluno)
             {
-                pessoaBindingSource1.Add(_aluno);
+                pessoaBindingSource1.Add(new Aluno());
                 pessoaBindingSource1.MoveLast();
             }
             if (pessoaBindingSource1.Current == null) return;
@@ -120,155 +74,71 @@ namespace SistemaAcademia
             using (var form = new CadastroAluno(pessoaBindingSource1.Current as Aluno))
             {
                 if (form.ShowDialog() == DialogResult.Yes)
-                { 
-                    
-                        var aluno = pessoaBindingSource1.Current as Aluno;
-
-                        using (var db = new AppDBContext())
-                        {
-                            if (db.Entry(aluno).State == EntityState.Detached)
-                            {
-                                db.Set<Pessoa>().Attach(aluno);
-                            }
-                            if (aluno.Id == 0)
-                            {
-                                db.Entry(aluno).State = EntityState.Added;
-                                 MessageBox.Show("aluno cadastrado com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                            else
-                            {
-                                db.Entry(aluno).State = EntityState.Modified;
-                                MessageBox.Show("Aluno editado com sucesso!", "Edição", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                            if (db.SaveChanges() > 0)
-                            {
-                                dataGridView2.Refresh();
-                            }
-                        }
-                    
-                }
-                else
                 {
-                    using (var db = new AppDBContext())
+                    var aluno = pessoaBindingSource1.Current as Aluno;
+
+                    if (new AlunoRepository().Save(aluno) > 1)
                     {
-                        if (_aluno.Id == 0)
-                        {
-                            db.Entry(_aluno).State = EntityState.Deleted;
-                            pessoaBindingSource1.Remove(_aluno);
-                             dataGridView2.Refresh();
-                        }
-                        else
-                        {
-                            form.Close();
-                        }
+                        dgvAluno.Refresh();
                     }
-
                 }
-
             }
-
-
         }
         private void btnExcluirAluno_Click(object sender, EventArgs e)
         {
-            var _aluno = pessoaBindingSource1.Current as Aluno;
-            if (_aluno == null) return;
+            var aluno = pessoaBindingSource1.Current as Aluno;
+            if (aluno == null) return;
             using (var db = new AppDBContext())
             {
-                if (MessageBox.Show("Deseja excluir mesmo esse aluno?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                { 
-
-                    if (db.Entry(_aluno).State == EntityState.Detached)
-                    {
-                        db.Set<Pessoa>().Attach(_aluno);
-                    }
-
-                    db.Entry(_aluno).State = EntityState.Deleted;
-                    if (db.SaveChanges() > 0)
-                    {
-                        pessoaBindingSource1.Remove(_aluno);
-                        dataGridView1.Refresh();
-                    }
+                if (MessageBox.Show("Deseja excluir mesmo esse aluno?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return;
+                }
+                if (new AlunoRepository().Delete(aluno) > 0)
+                {
+                    pessoaBindingSource.Remove(aluno);
+                    dgvAluno.Refresh();
                 }
             }
         }
 
         private void btnNovoModalidade_Click(object sender, EventArgs e)
         {
-            var _modalidade = new Modalidade();
+           // var _modalidade = new Modalidade();
             if (sender == btnNovoModalidade)
             {
-                modalidadeBindingSource.Add(_modalidade);
+                modalidadeBindingSource.Add(new Modalidade());
                 modalidadeBindingSource.MoveLast();
             }
             if (modalidadeBindingSource.Current == null) return;
 
             using (var form = new CadastroModalidade(modalidadeBindingSource.Current as Modalidade))
             {
-                    var modalidade = modalidadeBindingSource.Current as Modalidade;
+                var modalidade = modalidadeBindingSource.Current as Modalidade;
                 if (form.ShowDialog() == DialogResult.Yes)
                 {
 
-                    using (var db = new AppDBContext())
+                    if (new ModalidadeRepository().Save(modalidade) > 1)
                     {
-                        if (db.Entry(modalidade).State == EntityState.Detached)
-                        {
-                            db.Set<Modalidade>().Attach(modalidade);
-                        }
-                        if (modalidade.IdModalidade == 0)
-                        { 
-                            db.Entry(modalidade).State = EntityState.Added;
-                            MessageBox.Show("Modalidade salva com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        }
-                        else
-                        {
-                            db.Entry(modalidade).State = EntityState.Modified;
-                            MessageBox.Show("Modalidade editada com sucesso!", "Edição", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        }
-                        if (db.SaveChanges() > 0)
-                        {
-                            dataGridView3.Refresh();
-                        }
+                        dgvModalidade.Refresh();
                     }
-                }
-                else
-                {
-                    using (var db = new AppDBContext())
-                    {
-                        if (modalidade.IdModalidade == 0)
-                        {
-                            db.Entry(_modalidade).State = EntityState.Deleted;
-                            modalidadeBindingSource.Remove(_modalidade);
-                            dataGridView2.Refresh();
-                        }
-                        else
-                        {
-                            form.Close();
-                        }
-                    }
-
                 }
             }
         }
         private void btnExcluirModalidade_Click(object sender, EventArgs e)
         {
-            var _modalidade = modalidadeBindingSource.Current as Modalidade;
-            if (_modalidade == null) return;
+            var modalidade = modalidadeBindingSource.Current as Modalidade;
+            if (modalidade == null) return;
             using (var db = new AppDBContext())
             {
-                if (MessageBox.Show("Deseja excluir mesmo essa modalidade?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja excluir mesmo essa modalidade?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
-                    if (db.Entry(_modalidade).State == EntityState.Detached)
-                    {
-                        db.Set<Modalidade>().Attach(_modalidade);
-                    }
-
-                    db.Entry(_modalidade).State = EntityState.Deleted;
-                    if (db.SaveChanges() > 0)
-                    {
-                        modalidadeBindingSource.Remove(_modalidade);
-                        dataGridView3.Refresh();
-                    }
+                    return;
+                }
+                if (new ModalidadeRepository().Delete(modalidade) > 0)
+                {
+                    pessoaBindingSource.Remove(modalidade);
+                    dgvModalidade.Refresh();
                 }
             }
         }

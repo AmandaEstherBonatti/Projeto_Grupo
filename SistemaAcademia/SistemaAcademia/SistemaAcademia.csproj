@@ -132,6 +132,10 @@
     <Compile Include="Migrations\202108120015299_retirarFKModalidade.designer.cs">
       <DependentUpon>202108120015299_retirarFKModalidade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108132232311_adiona repository.cs" />
+    <Compile Include="Migrations\202108132232311_adiona repository.designer.cs">
+      <DependentUpon>202108132232311_adiona repository.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CadastroModalidade.cs">
       <SubType>Form</SubType>
@@ -141,6 +145,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AlunoRepository.cs" />
+    <Compile Include="Repository\ProfessorRepository.cs" />
+    <Compile Include="Repository\ModalidadeRepository.cs" />
     <EmbeddedResource Include="CadastroAluno.resx">
       <DependentUpon>CadastroAluno.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108120015299_retirarFKModalidade.resx">
       <DependentUpon>202108120015299_retirarFKModalidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108132232311_adiona repository.resx">
+      <DependentUpon>202108132232311_adiona repository.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
