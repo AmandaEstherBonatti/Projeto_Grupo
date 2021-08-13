@@ -114,6 +114,7 @@ namespace SistemaAcademia
             // 
             // cbxTurnoProfessor
             // 
+            this.cbxTurnoProfessor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTurnoProfessor.FormattingEnabled = true;
             this.cbxTurnoProfessor.Items.AddRange(new object[] {
             "Matutino",

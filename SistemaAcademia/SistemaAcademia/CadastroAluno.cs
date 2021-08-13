@@ -14,10 +14,12 @@ namespace SistemaAcademia
     public partial class CadastroAluno : Form
     {
         Aluno _aluno;
+        //Modalidade _modalidade;
         public CadastroAluno(Aluno aluno)
         {          
             InitializeComponent();
             _aluno = aluno;
+         //   _modalidade = modalidade;
         }
 
         private void CadastroAluno_Load(object sender, EventArgs e)
@@ -26,13 +28,32 @@ namespace SistemaAcademia
             mbxCpfAluno.DataBindings.Add("Text", _aluno, "Cpf");
             mbxTelefoneAluno.DataBindings.Add("Text", _aluno, "Telefone");
             //cbxModalidade.DataBindings.Add("Text", _aluno, "Modalidade");
-            cbxPagamento.DataBindings.Add("Text", _aluno, "Pagou");
+            cbxPagamento.Checked = _aluno.Pagou == "SIM";
+           
         }
 
         private void btnSalvarAluno_Click(object sender, EventArgs e)
         {
             this.Close();
 
+        }
+
+        private void cbxPagamento_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbxPagamento.Checked)
+            {
+                _aluno.Pagou = "SIM";
+            }
+
+            else
+            {
+                _aluno.Pagou = "NÃO";
+            }
+        }
+
+        private void cbxModalidade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _aluno.Modalidade = cbxModalidade.SelectedItem as Modalidade;
         }
     }
 }

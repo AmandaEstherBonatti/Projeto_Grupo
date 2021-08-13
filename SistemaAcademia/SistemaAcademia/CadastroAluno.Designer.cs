@@ -55,6 +55,7 @@ namespace SistemaAcademia
             // 
             // cbxTurno
             // 
+            this.cbxTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTurno.FormattingEnabled = true;
             this.cbxTurno.Items.AddRange(new object[] {
             "Matutino",
@@ -137,6 +138,7 @@ namespace SistemaAcademia
             // 
             // cbxModalidade
             // 
+            this.cbxModalidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxModalidade.FormattingEnabled = true;
             this.cbxModalidade.Items.AddRange(new object[] {
             "Musculação",
@@ -147,6 +149,7 @@ namespace SistemaAcademia
             this.cbxModalidade.Name = "cbxModalidade";
             this.cbxModalidade.Size = new System.Drawing.Size(121, 21);
             this.cbxModalidade.TabIndex = 5;
+            
             // 
             // label6
             // 
@@ -166,6 +169,7 @@ namespace SistemaAcademia
             this.cbxPagamento.TabIndex = 6;
             this.cbxPagamento.Text = "Confirmado";
             this.cbxPagamento.UseVisualStyleBackColor = true;
+            this.cbxPagamento.CheckedChanged += new System.EventHandler(this.cbxPagamento_CheckedChanged);
             // 
             // CadastroAluno
             // 

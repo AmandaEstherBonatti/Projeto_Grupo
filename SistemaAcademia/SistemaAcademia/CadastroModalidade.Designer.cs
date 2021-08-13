@@ -93,6 +93,7 @@ namespace SistemaAcademia
             // 
             this.txtIdModalidade.Location = new System.Drawing.Point(56, 36);
             this.txtIdModalidade.Name = "txtIdModalidade";
+            this.txtIdModalidade.ReadOnly = true;
             this.txtIdModalidade.Size = new System.Drawing.Size(100, 20);
             this.txtIdModalidade.TabIndex = 2;
             // 

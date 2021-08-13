@@ -103,34 +103,34 @@ namespace SistemaAcademia
             using (var form = new CadastroAluno(pessoaBindingSource1.Current as Aluno))
             {
                 if (form.ShowDialog() == DialogResult.Yes)
-                { 
-                    
-                        var aluno = pessoaBindingSource1.Current as Aluno;
+                {
 
-                        using (var db = new AppDBContext())
+                    var aluno = pessoaBindingSource1.Current as Aluno;
+
+                    using (var db = new AppDBContext())
+                    {
+                        if (db.Entry(aluno).State == EntityState.Detached)
                         {
-                            if (db.Entry(aluno).State == EntityState.Detached)
-                            {
-                                db.Set<Pessoa>().Attach(aluno);
-                            }
-                            if (aluno.Id == 0)
-                            {
-                                db.Entry(aluno).State = EntityState.Added;
-                                 MessageBox.Show("aluno cadastrado com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            db.Set<Pessoa>().Attach(aluno);
                         }
-                            else
-                            {
-                                db.Entry(aluno).State = EntityState.Modified;
-                                MessageBox.Show("Aluno editado com sucesso!", "Edição", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        if (aluno.Id == 0)
+                        {
+                            db.Entry(aluno).State = EntityState.Added;
+                            MessageBox.Show("aluno cadastrado com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                            if (db.SaveChanges() > 0)
-                            {
-                                dataGridView2.Refresh();
-                            }
+                        else
+                        {
+                            db.Entry(aluno).State = EntityState.Modified;
+                            MessageBox.Show("Aluno editado com sucesso!", "Edição", MessageBoxButtons.OK, MessageBoxIcon.None);
                         }
-                    
+                        if (db.SaveChanges() > 0)
+                        {
+                            dataGridView2.Refresh();
+                        }
+                    }
+
                 }
-                
+
             }
 
 
@@ -221,6 +221,8 @@ namespace SistemaAcademia
                 }
             }
         }
+
+       
 
        
     }
