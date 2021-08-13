@@ -175,3 +175,4 @@ C:\Users\flavio.oliveira\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcade
 C:\Users\flavio.oliveira\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.exe
 C:\Users\flavio.oliveira\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.pdb
 C:\Users\flavio.oliveira\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.Migrations.adionarepository.resources
+C:\Users\amanda.bonatti\Source\Repos\Projeto_Grupo\SistemaAcademia\SistemaAcademia\obj\Debug\SistemaAcademia.Migrations.adionarepository.resources

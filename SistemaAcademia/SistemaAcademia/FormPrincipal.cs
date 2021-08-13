@@ -29,18 +29,26 @@ namespace SistemaAcademia
                 pessoaBindingSource.Add(new Professor());
                 pessoaBindingSource.MoveLast();
             }
+            var professor = pessoaBindingSource.Current as Professor;
             if (pessoaBindingSource.Current == null) return;
 
-            using (var form = new CadastroProfessor(pessoaBindingSource.Current as Professor))
+            var temporario = new Professor();
+            temporario = professor.Clone();
+
+            using (var form = new CadastroProfessor(temporario))
             {
                 if (form.ShowDialog() == DialogResult.Yes)
                 {
-                    var professor = pessoaBindingSource.Current as Professor;
+                    professor.PegarDadosDe(temporario);
 
                     if (new ProfessorRepository().Save(professor) > 1)
                     {
                         dgvProfessor.Refresh();
                     }
+                }
+                else
+                {
+                    form.Close();
                 }
             }
         }
@@ -69,14 +77,18 @@ namespace SistemaAcademia
                 pessoaBindingSource1.Add(new Aluno());
                 pessoaBindingSource1.MoveLast();
             }
+            var aluno = pessoaBindingSource1.Current as Aluno;
             if (pessoaBindingSource1.Current == null) return;
 
-            using (var form = new CadastroAluno(pessoaBindingSource1.Current as Aluno))
+            var temporario = new Aluno();
+            temporario = aluno.Clone();
+
+            using (var form = new CadastroAluno(temporario))
             {
                 if (form.ShowDialog() == DialogResult.Yes)
                 {
-                    var aluno = pessoaBindingSource1.Current as Aluno;
 
+                    aluno.PegarDadosDe(temporario);
                     if (new AlunoRepository().Save(aluno) > 1)
                     {
                         dgvAluno.Refresh();
@@ -104,17 +116,20 @@ namespace SistemaAcademia
 
         private void btnNovoModalidade_Click(object sender, EventArgs e)
         {
-           // var _modalidade = new Modalidade();
             if (sender == btnNovoModalidade)
             {
                 modalidadeBindingSource.Add(new Modalidade());
                 modalidadeBindingSource.MoveLast();
             }
+            var modalidade = modalidadeBindingSource.Current as Modalidade;
             if (modalidadeBindingSource.Current == null) return;
+            var temporario = new Modalidade();
+            temporario = modalidade.Clone();
 
-            using (var form = new CadastroModalidade(modalidadeBindingSource.Current as Modalidade))
+
+            using (var form = new CadastroModalidade(temporario))
             {
-                var modalidade = modalidadeBindingSource.Current as Modalidade;
+                modalidade.PegarDadosDe(temporario);
                 if (form.ShowDialog() == DialogResult.Yes)
                 {
 

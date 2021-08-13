@@ -105,6 +105,7 @@ namespace SistemaAcademia
             this.dgvProfessor.DataSource = this.pessoaBindingSource;
             this.dgvProfessor.Location = new System.Drawing.Point(15, 40);
             this.dgvProfessor.Name = "dgvProfessor";
+            this.dgvProfessor.ReadOnly = true;
             this.dgvProfessor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProfessor.Size = new System.Drawing.Size(249, 272);
             this.dgvProfessor.TabIndex = 2;
@@ -114,24 +115,28 @@ namespace SistemaAcademia
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nomeDataGridViewTextBoxColumn
             // 
             this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
             this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
             this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cpfDataGridViewTextBoxColumn
             // 
             this.cpfDataGridViewTextBoxColumn.DataPropertyName = "Cpf";
             this.cpfDataGridViewTextBoxColumn.HeaderText = "Cpf";
             this.cpfDataGridViewTextBoxColumn.Name = "cpfDataGridViewTextBoxColumn";
+            this.cpfDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // telefoneDataGridViewTextBoxColumn
             // 
             this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "Telefone";
             this.telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
             this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
+            this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pessoaBindingSource
             // 
@@ -153,6 +158,7 @@ namespace SistemaAcademia
             this.dgvAluno.DataSource = this.pessoaBindingSource1;
             this.dgvAluno.Location = new System.Drawing.Point(288, 40);
             this.dgvAluno.Name = "dgvAluno";
+            this.dgvAluno.ReadOnly = true;
             this.dgvAluno.Size = new System.Drawing.Size(249, 272);
             this.dgvAluno.TabIndex = 3;
             // 
@@ -161,24 +167,28 @@ namespace SistemaAcademia
             this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // nomeDataGridViewTextBoxColumn1
             // 
             this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
             this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
             this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
+            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // cpfDataGridViewTextBoxColumn1
             // 
             this.cpfDataGridViewTextBoxColumn1.DataPropertyName = "Cpf";
             this.cpfDataGridViewTextBoxColumn1.HeaderText = "Cpf";
             this.cpfDataGridViewTextBoxColumn1.Name = "cpfDataGridViewTextBoxColumn1";
+            this.cpfDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // telefoneDataGridViewTextBoxColumn1
             // 
             this.telefoneDataGridViewTextBoxColumn1.DataPropertyName = "Telefone";
             this.telefoneDataGridViewTextBoxColumn1.HeaderText = "Telefone";
             this.telefoneDataGridViewTextBoxColumn1.Name = "telefoneDataGridViewTextBoxColumn1";
+            this.telefoneDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // pessoaBindingSource1
             // 
@@ -211,6 +221,7 @@ namespace SistemaAcademia
             this.dgvModalidade.DataSource = this.modalidadeBindingSource;
             this.dgvModalidade.Location = new System.Drawing.Point(555, 40);
             this.dgvModalidade.Name = "dgvModalidade";
+            this.dgvModalidade.ReadOnly = true;
             this.dgvModalidade.Size = new System.Drawing.Size(249, 272);
             this.dgvModalidade.TabIndex = 5;
             // 
@@ -219,30 +230,35 @@ namespace SistemaAcademia
             this.idModalidadeDataGridViewTextBoxColumn.DataPropertyName = "IdModalidade";
             this.idModalidadeDataGridViewTextBoxColumn.HeaderText = "IdModalidade";
             this.idModalidadeDataGridViewTextBoxColumn.Name = "idModalidadeDataGridViewTextBoxColumn";
+            this.idModalidadeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // professorDataGridViewTextBoxColumn
             // 
             this.professorDataGridViewTextBoxColumn.DataPropertyName = "Professor";
             this.professorDataGridViewTextBoxColumn.HeaderText = "Professor";
             this.professorDataGridViewTextBoxColumn.Name = "professorDataGridViewTextBoxColumn";
+            this.professorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // vezesSemanaDataGridViewTextBoxColumn
             // 
             this.vezesSemanaDataGridViewTextBoxColumn.DataPropertyName = "VezesSemana";
             this.vezesSemanaDataGridViewTextBoxColumn.HeaderText = "VezesSemana";
             this.vezesSemanaDataGridViewTextBoxColumn.Name = "vezesSemanaDataGridViewTextBoxColumn";
+            this.vezesSemanaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // precoHoraDataGridViewTextBoxColumn
             // 
             this.precoHoraDataGridViewTextBoxColumn.DataPropertyName = "PrecoHora";
             this.precoHoraDataGridViewTextBoxColumn.HeaderText = "PrecoHora";
             this.precoHoraDataGridViewTextBoxColumn.Name = "precoHoraDataGridViewTextBoxColumn";
+            this.precoHoraDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nomeDataGridViewTextBoxColumn2
             // 
             this.nomeDataGridViewTextBoxColumn2.DataPropertyName = "Nome";
             this.nomeDataGridViewTextBoxColumn2.HeaderText = "Nome";
             this.nomeDataGridViewTextBoxColumn2.Name = "nomeDataGridViewTextBoxColumn2";
+            this.nomeDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // modalidadeBindingSource
             // 
