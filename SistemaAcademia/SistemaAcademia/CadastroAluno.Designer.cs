@@ -40,11 +40,11 @@ namespace SistemaAcademia
             this.label2 = new System.Windows.Forms.Label();
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbxModalidade = new System.Windows.Forms.ComboBox();
+            this.modalidadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.cbxPagamento = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.modalidadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbxModalidade = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.modalidadeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +59,7 @@ namespace SistemaAcademia
             // 
             // cbxTurno
             // 
+            this.cbxTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTurno.FormattingEnabled = true;
             this.cbxTurno.Items.AddRange(new object[] {
             "Matutino",
@@ -81,10 +82,10 @@ namespace SistemaAcademia
             // btncancelarA
             // 
             this.btncancelarA.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btncancelarA.Location = new System.Drawing.Point(12, 193);
+            this.btncancelarA.Location = new System.Drawing.Point(17, 189);
             this.btncancelarA.Name = "btncancelarA";
             this.btncancelarA.Size = new System.Drawing.Size(75, 23);
-            this.btncancelarA.TabIndex = 7;
+            this.btncancelarA.TabIndex = 8;
             this.btncancelarA.Text = "Cancel";
             this.btncancelarA.UseVisualStyleBackColor = true;
             this.btncancelarA.Click += new System.EventHandler(this.btnSalvarAluno_Click);
@@ -139,15 +140,9 @@ namespace SistemaAcademia
             this.label1.TabIndex = 12;
             this.label1.Text = "Nome";
             // 
-            // cbxModalidade
+            // modalidadeBindingSource
             // 
-            this.cbxModalidade.DataSource = this.modalidadeBindingSource;
-            this.cbxModalidade.FormattingEnabled = true;
-            this.cbxModalidade.Location = new System.Drawing.Point(82, 122);
-            this.cbxModalidade.Name = "cbxModalidade";
-            this.cbxModalidade.Size = new System.Drawing.Size(121, 21);
-            this.cbxModalidade.TabIndex = 5;
-            this.cbxModalidade.SelectedIndexChanged += new System.EventHandler(this.cbxModalidade_SelectedIndexChanged);
+            this.modalidadeBindingSource.DataSource = typeof(SistemaAcademia.Dominio.Modalidade);
             // 
             // label6
             // 
@@ -167,30 +162,37 @@ namespace SistemaAcademia
             this.cbxPagamento.TabIndex = 6;
             this.cbxPagamento.Text = "Confirmado";
             this.cbxPagamento.UseVisualStyleBackColor = true;
+            this.cbxPagamento.CheckedChanged += new System.EventHandler(this.cbxPagamento_CheckedChanged);
             // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.button1.Location = new System.Drawing.Point(128, 189);
+            this.button1.Location = new System.Drawing.Point(118, 189);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Ok";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // modalidadeBindingSource
+            // cbxModalidade
             // 
-            this.modalidadeBindingSource.DataSource = typeof(SistemaAcademia.Dominio.Modalidade);
+            this.cbxModalidade.DataSource = this.modalidadeBindingSource;
+            this.cbxModalidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxModalidade.FormattingEnabled = true;
+            this.cbxModalidade.Location = new System.Drawing.Point(82, 125);
+            this.cbxModalidade.Name = "cbxModalidade";
+            this.cbxModalidade.Size = new System.Drawing.Size(121, 21);
+            this.cbxModalidade.TabIndex = 24;
             // 
             // CadastroAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(215, 224);
+            this.Controls.Add(this.cbxModalidade);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbxPagamento);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.cbxModalidade);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbxTurno);
             this.Controls.Add(this.label4);
@@ -221,10 +223,10 @@ namespace SistemaAcademia
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNomeAluno;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxModalidade;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox cbxPagamento;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource modalidadeBindingSource;
+        private System.Windows.Forms.ComboBox cbxModalidade;
     }
 }

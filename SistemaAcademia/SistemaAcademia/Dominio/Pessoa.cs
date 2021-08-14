@@ -12,10 +12,10 @@ namespace SistemaAcademia.Dominio
         [Key]
         public int Id { get; set; }
         //comentario
-        public String Nome { get; set; }
+        public string Nome { get; set; }
 
-        public String Cpf { get; set; }
+        public string Cpf { get; set; }
 
-        public String Telefone { get; set; }
+        public string Telefone { get; set; }
     }
 }

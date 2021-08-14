@@ -21,8 +21,6 @@ namespace SistemaAcademia.Dominio
             };
 
             return professor;
-
-
         }
 
         public void PegarDadosDe(Professor professor)

@@ -15,7 +15,7 @@ namespace SistemaAcademia
     {
         Aluno _aluno;
         public CadastroAluno(Aluno aluno)
-        {          
+        {
             InitializeComponent();
             _aluno = aluno;
         }
@@ -25,9 +25,14 @@ namespace SistemaAcademia
             txtNomeAluno.DataBindings.Add("Text", _aluno, "Nome");
             mbxCpfAluno.DataBindings.Add("Text", _aluno, "Cpf");
             mbxTelefoneAluno.DataBindings.Add("Text", _aluno, "Telefone");
-            modalidadeBindingSource.DataSource = new AppDBContext().Modalidades.ToList();
+            using (var db = new AppDBContext())
+            {
+                modalidadeBindingSource.DataSource = db.Modalidades.ToList();
+            }
             cbxPagamento.DataBindings.Add("Text", _aluno, "Pagou");
-
+            cbxModalidade.DataBindings.Add("SelectedItem", _aluno, "Modalidade");
+            cbxTurno.DataBindings.Add("SelectedItem", _aluno, "Turno");
+            //SelecionarModalidadeAtual();
         }
 
         private void btnSalvarAluno_Click(object sender, EventArgs e)
@@ -36,20 +41,29 @@ namespace SistemaAcademia
 
         }
 
-        private void cbxModalidade_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxPagamento_CheckedChanged(object sender, EventArgs e)
         {
-            _aluno.Modalidade = cbxModalidade.SelectedItem as Modalidade;
-            selecionarModalidaAtual();
+            if (cbxPagamento.Checked)
+            {
+                _aluno.Pagou = "SIM";
+            }
+
+            else
+            {
+                _aluno.Pagou = "NÃO";
+            }
         }
 
-        private void selecionarModalidaAtual()
+
+
+        private void SelecionarModalidadeAtual()
         {
-            foreach ( var item in cbxModalidade.Items)
+            foreach (var item in cbxModalidade.Items)
             {
                 var modalidade = item as Modalidade;
 
                 if (modalidade is null) return;
-                if(modalidade.IdModalidade == _aluno.Modalidade.IdModalidade)
+                if (modalidade.IdModalidade == _aluno.Modalidade.IdModalidade)
                 {
                     cbxModalidade.SelectedItem = item;
                 }

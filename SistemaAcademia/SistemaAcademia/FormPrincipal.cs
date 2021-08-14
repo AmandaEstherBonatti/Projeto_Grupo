@@ -17,7 +17,7 @@ namespace SistemaAcademia
             using (var db = new AppDBContext())
             {
                 pessoaBindingSource.DataSource = db.Professores.ToList();
-                pessoaBindingSource1.DataSource = db.Alunos.ToList();
+                alunoBindingSource.DataSource = db.Alunos.ToList();
                 modalidadeBindingSource.DataSource = db.Modalidades.ToList();
             }
         }
@@ -74,11 +74,11 @@ namespace SistemaAcademia
         {
             if (sender == btnNovoAluno)
             {
-                pessoaBindingSource1.Add(new Aluno());
-                pessoaBindingSource1.MoveLast();
+                alunoBindingSource.Add(new Aluno());
+                alunoBindingSource.MoveLast();
             }
-            var aluno = pessoaBindingSource1.Current as Aluno;
-            if (pessoaBindingSource1.Current == null) return;
+            var aluno = alunoBindingSource.Current as Aluno;
+            if (aluno == null) return;
 
             var temporario = new Aluno();
             temporario = aluno.Clone();
@@ -98,7 +98,7 @@ namespace SistemaAcademia
         }
         private void btnExcluirAluno_Click(object sender, EventArgs e)
         {
-            var aluno = pessoaBindingSource1.Current as Aluno;
+            var aluno = alunoBindingSource.Current as Aluno;
             if (aluno == null) return;
             using (var db = new AppDBContext())
             {
@@ -108,7 +108,7 @@ namespace SistemaAcademia
                 }
                 if (new AlunoRepository().Delete(aluno) > 0)
                 {
-                    pessoaBindingSource.Remove(aluno);
+                    alunoBindingSource.Remove(aluno);
                     dgvAluno.Refresh();
                 }
             }
@@ -127,18 +127,17 @@ namespace SistemaAcademia
             temporario = modalidade.Clone();
 
 
-            using (var form = new CadastroModalidade(temporario))
+            var form = new CadastroModalidade(temporario); 
+            if (form.ShowDialog() == DialogResult.Yes)
             {
                 modalidade.PegarDadosDe(temporario);
-                if (form.ShowDialog() == DialogResult.Yes)
-                {
 
-                    if (new ModalidadeRepository().Save(modalidade) > 1)
-                    {
-                        dgvModalidade.Refresh();
-                    }
+                if (new ModalidadeRepository().Save(modalidade) > 1)
+                {
+                    dgvModalidade.Refresh();
                 }
             }
+
         }
         private void btnExcluirModalidade_Click(object sender, EventArgs e)
         {

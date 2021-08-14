@@ -25,8 +25,9 @@ namespace SistemaAcademia
             txtNomeProfessor.DataBindings.Add("Text", _professor, "Nome");
             mbxCpfprofessor.DataBindings.Add("Text", _professor, "Cpf");
             mbxTelefoneProfessor.DataBindings.Add("Text", _professor, "Telefone");
-            //cbxTurnoProfessor.DataBindings.Add("Text", _professor, "Turno");
+            cbxTurnoProfessor.DataBindings.Add("SelectedItem", _professor, "Turno");
             txtSalarioHora.DataBindings.Add("Text", _professor, "SalarioHora");
+
         }
 
         private void btnSalvarProfessor_Click(object sender, EventArgs e)

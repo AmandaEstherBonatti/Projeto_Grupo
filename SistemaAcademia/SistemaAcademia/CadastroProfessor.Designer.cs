@@ -96,11 +96,11 @@ namespace SistemaAcademia
             // btnSalvarProfessor
             // 
             this.btnSalvarProfessor.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnSalvarProfessor.Location = new System.Drawing.Point(12, 160);
+            this.btnSalvarProfessor.Location = new System.Drawing.Point(12, 156);
             this.btnSalvarProfessor.Name = "btnSalvarProfessor";
             this.btnSalvarProfessor.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarProfessor.TabIndex = 6;
-            this.btnSalvarProfessor.Text = "Salvar";
+            this.btnSalvarProfessor.Text = "Ok";
             this.btnSalvarProfessor.UseVisualStyleBackColor = true;
             this.btnSalvarProfessor.Click += new System.EventHandler(this.btnSalvarProfessor_Click);
             // 
@@ -144,7 +144,7 @@ namespace SistemaAcademia
             // btncancel
             // 
             this.btncancel.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btncancel.Location = new System.Drawing.Point(123, 160);
+            this.btncancel.Location = new System.Drawing.Point(118, 156);
             this.btncancel.Name = "btncancel";
             this.btncancel.Size = new System.Drawing.Size(75, 23);
             this.btncancel.TabIndex = 11;

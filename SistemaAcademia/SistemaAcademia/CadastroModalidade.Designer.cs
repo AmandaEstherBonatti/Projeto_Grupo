@@ -35,8 +35,6 @@ namespace SistemaAcademia
             this.btnSalvarModalidade = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtIdModalidade = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.professorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbxVezesPorSemanaModalidade = new System.Windows.Forms.ComboBox();
             this.txtPrecoHora = new System.Windows.Forms.TextBox();
@@ -49,7 +47,7 @@ namespace SistemaAcademia
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 9);
+            this.label5.Location = new System.Drawing.Point(15, 22);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 34;
@@ -70,7 +68,7 @@ namespace SistemaAcademia
             this.btnSalvarModalidade.Location = new System.Drawing.Point(12, 156);
             this.btnSalvarModalidade.Name = "btnSalvarModalidade";
             this.btnSalvarModalidade.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvarModalidade.TabIndex = 6;
+            this.btnSalvarModalidade.TabIndex = 5;
             this.btnSalvarModalidade.Text = "Ok";
             this.btnSalvarModalidade.UseVisualStyleBackColor = true;
             this.btnSalvarModalidade.Click += new System.EventHandler(this.btnSalvarModalidade_Click);
@@ -93,29 +91,15 @@ namespace SistemaAcademia
             this.label2.TabIndex = 27;
             this.label2.Text = "Professor";
             // 
-            // txtIdModalidade
-            // 
-            this.txtIdModalidade.Location = new System.Drawing.Point(56, 36);
-            this.txtIdModalidade.Name = "txtIdModalidade";
-            this.txtIdModalidade.Size = new System.Drawing.Size(100, 20);
-            this.txtIdModalidade.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 13);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Id ";
-            // 
             // professorBindingSource
             // 
             this.professorBindingSource.DataSource = typeof(SistemaAcademia.Dominio.Professor);
             // 
             // cbxVezesPorSemanaModalidade
             // 
+            this.cbxVezesPorSemanaModalidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxVezesPorSemanaModalidade.FormattingEnabled = true;
+            this.cbxVezesPorSemanaModalidade.ItemHeight = 13;
             this.cbxVezesPorSemanaModalidade.Items.AddRange(new object[] {
             "1",
             "2",
@@ -134,11 +118,11 @@ namespace SistemaAcademia
             this.txtPrecoHora.Location = new System.Drawing.Point(77, 118);
             this.txtPrecoHora.Name = "txtPrecoHora";
             this.txtPrecoHora.Size = new System.Drawing.Size(100, 20);
-            this.txtPrecoHora.TabIndex = 5;
+            this.txtPrecoHora.TabIndex = 4;
             // 
             // txtNomeModalidade
             // 
-            this.txtNomeModalidade.Location = new System.Drawing.Point(53, 6);
+            this.txtNomeModalidade.Location = new System.Drawing.Point(56, 19);
             this.txtNomeModalidade.Name = "txtNomeModalidade";
             this.txtNomeModalidade.Size = new System.Drawing.Size(100, 20);
             this.txtNomeModalidade.TabIndex = 1;
@@ -149,18 +133,20 @@ namespace SistemaAcademia
             this.btnCancel.Location = new System.Drawing.Point(118, 156);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 35;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // cbxProfessorModalidade
             // 
             this.cbxProfessorModalidade.DataSource = this.professorBindingSource;
+            this.cbxProfessorModalidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxProfessorModalidade.FormattingEnabled = true;
             this.cbxProfessorModalidade.Location = new System.Drawing.Point(72, 59);
             this.cbxProfessorModalidade.Name = "cbxProfessorModalidade";
             this.cbxProfessorModalidade.Size = new System.Drawing.Size(121, 21);
-            this.cbxProfessorModalidade.TabIndex = 36;
+            this.cbxProfessorModalidade.TabIndex = 2;
+            this.cbxProfessorModalidade.SelectedIndexChanged += new System.EventHandler(this.cbxProfessorModalidade_SelectedIndexChanged_1);
             // 
             // CadastroModalidade
             // 
@@ -177,8 +163,6 @@ namespace SistemaAcademia
             this.Controls.Add(this.btnSalvarModalidade);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtIdModalidade);
-            this.Controls.Add(this.label1);
             this.Name = "CadastroModalidade";
             this.Text = "Modalidade";
             this.Load += new System.EventHandler(this.CadastroModalidade_Load);
@@ -194,8 +178,6 @@ namespace SistemaAcademia
         private System.Windows.Forms.Button btnSalvarModalidade;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtIdModalidade;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxVezesPorSemanaModalidade;
         private System.Windows.Forms.TextBox txtPrecoHora;
         private System.Windows.Forms.TextBox txtNomeModalidade;

@@ -8,11 +8,11 @@ namespace SistemaAcademia.Dominio
 {
     public class Aluno : Pessoa
     {
-        public String Turno { get; set; }
+        public string Turno { get; set; }
 
         public virtual Modalidade Modalidade  { get; set; }
 
-        public String Pagou { get; set; }
+        public string Pagou { get; set; }
 
         public Aluno Clone()
         {
@@ -23,7 +23,8 @@ namespace SistemaAcademia.Dominio
                 Cpf = this.Cpf,
                 Telefone = this.Telefone,
                 Turno = this.Turno,
-                Modalidade = this.Modalidade
+                Modalidade = this.Modalidade,
+                Pagou = this.Pagou
             };
 
             return aluno;
@@ -37,6 +38,7 @@ namespace SistemaAcademia.Dominio
             this.Telefone = aluno.Telefone;
             this.Turno = aluno.Turno;
             this.Modalidade = aluno.Modalidade;
+            this.Pagou = aluno.Pagou;
         }
     }
 }

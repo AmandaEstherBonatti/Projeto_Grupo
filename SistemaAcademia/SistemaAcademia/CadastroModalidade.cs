@@ -23,9 +23,13 @@ namespace SistemaAcademia
         private void CadastroModalidade_Load(object sender, EventArgs e)
         {
             txtNomeModalidade.DataBindings.Add("Text", _modalidade, "Nome");
+            cbxVezesPorSemanaModalidade.DataBindings.Add("SelectedItem", _modalidade, "VezesSemana");
             txtPrecoHora.DataBindings.Add("Text", _modalidade, "PrecoHora");
-            professorBindingSource.DataSource = new AppDBContext().Professores.ToList();
-            
+            using (var db = new AppDBContext( ))
+            {
+                professorBindingSource.DataSource = db.Professores.ToList();
+            }
+            selecionarProfessorAtual();
         }
 
         private void btnSalvarModalidade_Click(object sender, EventArgs e)
@@ -35,6 +39,7 @@ namespace SistemaAcademia
 
         private void selecionarProfessorAtual()
         {
+            if (_modalidade.Professor is null) return;
             foreach (var item in cbxProfessorModalidade.Items)
             {
                 var professor = item as Professor;
@@ -47,10 +52,10 @@ namespace SistemaAcademia
             }
         }
 
-        private void cbxProfessorModalidade_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxProfessorModalidade_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             _modalidade.Professor = cbxProfessorModalidade.SelectedItem as Professor;
-            selecionarProfessorAtual();
+
         }
     }
 }
