@@ -29,6 +29,7 @@ namespace SistemaAcademia
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroProfessor));
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeProfessor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -145,6 +146,8 @@ namespace SistemaAcademia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(215, 195);
             this.Controls.Add(this.txtSalarioHora);
             this.Controls.Add(this.label5);
